@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+
+<h1>Add a Complaint</h1>
+
+      <!--   <form id="complaints_form" method="post" action="/gwalior/add_complaint/">
+        	{% csrf_token %}
+
+        	{% if user.is_authenticated %}
+            {{ form.type_of_complaint.label }}
+            {{ form.type_of_complaint }}
+            <br/>
+            {{ form.complaint_title.label }}
+            {{ form.complaint_title }}
+            <br/>
+            {{ form.complaint_desc.label }}
+            {{ form.complaint_desc }}
+            <br/>
+
+            {% else %}
+
+
+
+
+
+            {{ form.as_p }}
+
+            {% endif %}
+
+            <input type="submit" name="submit" value="Submit Your Complaint" />
+        </form> -->
+
+
+
+{% if user.is_authenticated %}
+
+
+<form id="complaints_form" method="post" action="/gwalior/add_complaint/">
+{% csrf_token %}
+    <div class="control-group">
+      <!-- Username -->
+      <div class="controls">
+        <input type="text" id="first_name" name="first_name" placeholder="fisrt_name" class="input-xlarge name" value={{ info.first_name }}>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="last_name" name="last_name" placeholder="last_name" class="input-xlarge name"  value={{ info.last_name }}>
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="username" name="username" placeholder="username" class="input-xlarge name"  value={{ user.username }} readonly>
+      </div>
+    </div>
+
+     <div class="control-group">
+      <div class="controls">
+        <select id="gender" name="gender" class="input-xlarge manufacturer"  value={{ info.gender }}>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="age" name="age" placeholder="age" class="input-xlarge name"  value={{ info.age }}>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="address" name="address" placeholder="address" class="input-xlarge name"  value={{ info.address }}>
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="area" name="area" placeholder="area" class="input-xlarge name"  value={{ info.area }}>
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="pin" name="pin" placeholder="pin" class="input-xlarge name"  value={{ info.pin }}>
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="telephone" name="telephone" placeholder="telephone" class="input-xlarge name"  value={{ info.telephone }}>
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="mobile" name="mobile" placeholder="mobile" class="input-xlarge name"  value={{ info.mobile }}>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="email" id="email" name="email" placeholder="email" class="input-xlarge name"  value={{ user.email }}>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <div class="controls">
+        <select id="type_of_complaint" name="type_of_complaint" class="input-xlarge distributor">
+            <option value="CA">Civic Amenities</option>
+            <option value="ED">Education</option>
+            <option value="EN">Environment</option>
+            <option value="HO">Hospital</option>
+            <option value="JA">Jail</option>
+            <option value="OT">Others</option>
+            <option value="PO">Police</option>
+            <option value="SE">Service</option>
+        </select>
+      </div>
+    </div>
+
+     <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="complaint_title" name="complaint_title" placeholder="comp title" class="input-xlarge name" >
+      </div>
+    </div>
+
+
+    <textarea id="complaint_desc" name="complaint_desc" rows="10" cols="30">
+  </textarea>
+    
+ 
+    
+    
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <input type="submit" name="submit" value="Submit Your Complaint" />
+    </div>
+</form>
+
+
+
+
+{% else %}
+
+
+
+<form id="complaints_form" method="post" action="/gwalior/add_complaint/">
+{% csrf_token %}
+    <div class="control-group">
+      <!-- Username -->
+      <div class="controls">
+        <input type="text" id="first_name" name="first_name" placeholder="fisrt_name" class="input-xlarge name">
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="last_name" name="last_name" placeholder="last_name" class="input-xlarge name">
+      </div>
+    </div>
+
+     <div class="control-group">
+      <div class="controls">
+        <select id="gender" name="gender" class="input-xlarge manufacturer">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="age" name="age" placeholder="age" class="input-xlarge name">
+      </div>
+    </div>
+    
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="address" name="address" placeholder="address" class="input-xlarge name">
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="area" name="area" placeholder="area" class="input-xlarge name">
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="pin" name="pin" placeholder="pin" class="input-xlarge name">
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="telephone" name="telephone" placeholder="telephone" class="input-xlarge name">
+      </div>
+    </div>
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="mobile" name="mobile" placeholder="mobile" class="input-xlarge name">
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      
+      <div class="controls">
+        <input type="email" id="email" name="email" placeholder="email" class="input-xlarge name">
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <div class="controls">
+        <select id="type_of_complaint" name="type_of_complaint" class="input-xlarge distributor">
+            <option value="CA">Civic</option>
+            <option value="ED">Education</option>
+            <option value="EN">Environ</option>
+            <option value="HO">Hospital</option>
+            <option value="JA">Jain</option>
+            <option value="OT">Civic</option>
+            <option value="PO">Civic</option>
+            <option value="SE">Civic</option>
+        </select>
+      </div>
+    </div>
+
+     <div class="control-group">
+      
+      <div class="controls">
+        <input type="text" id="complaint_title" name="complaint_title" placeholder="comp title" class="input-xlarge name" >
+      </div>
+    </div>
+
+
+    <textarea id="complaint_desc" name="complaint_desc" rows="10" cols="30">
+  </textarea>
+    
+ 
+    
+    
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <input type="submit" name="submit" value="Submit Your Complaint" />
+    </div>
+</form>
+
+
+{% endif %}
+
+
+
+{% endblock %}
+
+

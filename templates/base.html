@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}CMS | Gwalior{% endblock %}</title>
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/prettyPhoto.css" %}" rel="stylesheet">
+    <link href="{% static "css/animate.css" %}" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="{% static "images/ico/favicon.ico" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "images/ico/apple-touch-icon-144-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "images/ico/apple-touch-icon-114-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "images/ico/apple-touch-icon-72-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static "images/ico/apple-touch-icon-57-precomposed.png" %}">
+</head><!--/head-->
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h2>CMS | Gwalior</h2>
+                <!-- <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a> -->
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="{{ ho }}"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="{{ au }}"><a href="{% url 'about' %}">About Us</a></li>
+                    <li class="{{ ac }}"><a href="{% url 'add_complaint' %}">Add Complaint</a></li>
+                    <li class="{{ cs }}"><a href="{% url 'status' %}">Complaint Status</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="{{ pr }}"><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'password_change' %}">Change Password</a></li>
+                    <li><a href="{% url 'polls:polls' %}">Polls</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <!-- <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="career.html">Career</a></li>
+                            <li><a href="blog-item.html">Blog Single</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="404.html">404</a></li>
+                            <li><a href="registration.html">Registration</a></li>
+                            <li class="divider"></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Use</a></li>
+                        </ul>
+                    </li> -->
+                    {% else %}
+                    <li class="{{ re }}"><a href="{% url 'register' %}">Register</a></li>
+					<li class="{{ ln }}"><a href="{% url 'login' %}">Login</a></li>
+					{% endif %}
+                     
+                    <li  class="{{ co }}"><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header><!--/header-->
+    
+
+   
+    {% block body_block %}{% endblock %}
+
+
+
+
+    
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2015 <a target="_blank" href="{% url 'index' %}" title="Complaint Management System">CMS | Gwalior</a>. All Rights Reserved.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jquery.prettyPhoto.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+</body>
+</html>

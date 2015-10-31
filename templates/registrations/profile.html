@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+	<p>First Name: {{ info.first_name }}</p>
+	<p>Last Name: {{ info.last_name }}</p>
+	<img src="/media/{{ info.picture }}" alt="Profile Pic" style="width:200px;height:160px;">
+	<br/>
+	<br/>
+
+	Problem title   -    Status <br/>
+
+	{% for x in comp %}
+	{{x.complaint_title}}   -   {{ x.solved }}
+	<br/>
+	{% endfor %}
+
+
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+{% endblock %}

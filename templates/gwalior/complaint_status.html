@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+
+
+
+
+
+<form action="" method="POST">
+{% csrf_token %}
+COMPLAINT ID:
+    {{form.idnumber}}
+    <button type="submit">Submit</button>
+
+</form>
+
+{{ form.idnumber.errors }}
+</form>
+
+
+
+{{ status.solved }}
+
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+{% endblock %}
+
