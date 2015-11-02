@@ -48,13 +48,13 @@
     <div class="col-md-4">
 
     <div class="form-group">
-        <input type="text" id="first_name" name="first_name" placeholder="First Name" class="form-control" value={{ info.first_name }}>
+        <input type="text" id="first_name" name="first_name" placeholder="First Name" class="form-control" value="{{ info.first_name }}">
         {{ form.first_name.errors }}
 
     </div>
  
     <div class="form-group">
-        <input type="text" id="last_name" name="last_name" placeholder="Last Name" class="form-control" value={{ info.last_name }}>
+        <input type="text" id="last_name" name="last_name" placeholder="Last Name" class="form-control" value="{{ info.last_name }}">
         {{ form.last_name.errors }}
       </div>
 
@@ -62,7 +62,7 @@
     {% if user.is_authenticated %}
 
     <div class="form-group">
-        <input type="text" id="username" name="username" placeholder="username" class="form-control"  value={{ user.username }} readonly>
+        <input type="text" id="username" name="username" placeholder="username" class="form-control"  value="{{ user.username }}" readonly>
         {{ form.username.errors }}
     </div>
 
@@ -70,7 +70,7 @@
 
 
      <div class="form-group">
-        <select id="gender" name="gender" class="form-control" value={{ info.gender }}>
+        <select id="gender" name="gender" class="form-control" value="{{ info.gender }}">
             <option value="M">Male</option>
             <option value="F">Female</option>
         </select>
@@ -78,44 +78,44 @@
     </div>
 
    <div class="form-group">
-        <input type="text" id="age" name="age" placeholder="Age" class="form-control" value={{ info.age }}>
+        <input type="text" id="age" name="age" placeholder="Age" class="form-control" value="{{ info.age }}">
         {{ form.age.errors }}
       </div>
 
     
     <div class="form-group">
-        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value={{ info.address }}>
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="{{ info.address }}">
         {{ form.address.errors }}
       </div>
  
 
     <div class="form-group">
-        <input type="text" id="area" name="area" placeholder="Area" class="form-control" value={{ info.area }}>
+        <input type="text" id="area" name="area" placeholder="Area" class="form-control" value="{{ info.area }}">
         {{ form.area.errors }}
       </div>
 
 
     <div class="form-group">
-        <input type="text" id="pin" name="pin" placeholder="Pin" class="form-control" value={{ info.pin }}>
+        <input type="text" id="pin" name="pin" placeholder="Pin" class="form-control" value="{{ info.pin }}">
         {{ form.pin.errors }}
       </div>
 
 
     <div class="form-group">
-        <input type="text" id="telephone" name="telephone" placeholder="Telephone" class="form-control" value={{ info.telephone }}>
+        <input type="text" id="telephone" name="telephone" placeholder="Telephone" class="form-control" value="{{ info.telephone }}">
         {{ form.telephone.errors }}
       </div>
  
 
     <div class="form-group">
-        <input type="text" id="mobile" name="mobile" placeholder="Mobile" class="form-control" value={{ info.mobile }}>
+        <input type="text" id="mobile" name="mobile" placeholder="Mobile" class="form-control" value="{{ info.mobile }}">
         {{ form.mobile.errors }}
       </div>
 
 
 
     <div class="form-group">
-        <input type="email" id="email" name="email" placeholder="Email" class="form-control" value={{ user.email }}>
+        <input type="email" id="email" name="email" placeholder="Email" class="form-control" value="{{ user.email }}">
         {{ form.email.errors }}
       </div>
  

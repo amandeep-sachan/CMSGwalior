@@ -41,6 +41,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="{{ ho }}"><a href="{% url 'index' %}">Home</a></li>
                     <li class="{{ au }}"><a href="{% url 'about' %}">About Us</a></li>
+                    <li class="{{ ac }}"><a href="{% url 'add_complaint' %}">Add Complaint</a></li>
+                    <li class="{{ cs }}"><a href="{% url 'status' %}">Complaint Status</a></li>
                     {% if user.is_authenticated %}
                     <li class="{{ pr }}"><a href="{% url 'profile' %}">Profile</a></li>
                     <li><a href="{% url 'polls:polls' %}">Polls</a></li>
@@ -61,8 +63,7 @@
                     {% else %}
 					<li class="{{ ln }}"><a href="{% url 'login' %}">Register/Login</a></li>
 					{% endif %}
-                    <li class="{{ ac }}"><a href="{% url 'add_complaint' %}">Add Complaint</a></li>
-                    <li class="{{ cs }}"><a href="{% url 'status' %}">Complaint Status</a></li>
+                    
 
                      
                     
