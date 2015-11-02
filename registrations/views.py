@@ -32,7 +32,7 @@ def register(request):
 
 			registration = UserProfiles(user=user, first_name = form.cleaned_data['first_name'], last_name = form.cleaned_data['last_name'],
 				address = form.cleaned_data['address'],area = form.cleaned_data['area'],pin = form.cleaned_data['pin'],telephone = form.cleaned_data['telephone'],
-				mobile = form.cleaned_data['mobile'], education = form.cleaned_data['education']
+				mobile = form.cleaned_data['mobile'], education = form.cleaned_data['education'], age = form.cleaned_data['age'], gender = form.cleaned_data['gender']
 				)
 			if 'picture' in request.FILES:
 				registration.picture = request.FILES['picture']
@@ -41,12 +41,12 @@ def register(request):
 			return HttpResponseRedirect('/profile')
 
 		else:
-			return render_to_response('registrations/register.html',{'form':form, 're':"active"}, context_instance=RequestContext(request))
+			return render_to_response('registrations/register.html',{'form':form, 'ln':"active"}, context_instance=RequestContext(request))
 
 
 	else:
 	 	form = RegistrationForm()
-	   	context = {'form': form, 're':"active"}
+	   	context = {'form': form, 'ln':"active"}
 	  	return render_to_response('registrations/register.html', context, context_instance=RequestContext(request))
 
 @login_required

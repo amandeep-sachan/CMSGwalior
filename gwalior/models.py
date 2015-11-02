@@ -18,7 +18,7 @@ class Complaints(models.Model):
 	address = models.CharField(max_length=1024)
 	area = models.CharField(max_length=512)
 	pin = models.IntegerField(default=0)
-	telephone = models.BigIntegerField(blank=True, null=True)
+	telephone = models.BigIntegerField(blank=True, null=True, default='0')
 	mobile = models.BigIntegerField()
 	email = models.EmailField(blank=True, null=True)
 
@@ -68,6 +68,8 @@ class Complaints(models.Model):
 		(4, 4),
 		(5, 5),
 		) 
+
+	comment = models.TextField()
 	preference = models.IntegerField(choices=PREFERENCE_CHOICE,
 									default=0)
 

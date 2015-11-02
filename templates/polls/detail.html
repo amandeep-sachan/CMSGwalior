@@ -1,12 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'mybase.html' %}
 
 {% load staticfiles %}
 {% block body_block %}
 
 
-<h1>{{ question.question_text }}</h1>
+
+<center><h1>Q. {{ question.question_text }}</h1></center><br/><br/>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+	<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-4">
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
@@ -14,41 +19,12 @@
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
 {% endfor %}
-<input type="submit" value="Vote" />
+<input class="btn btn-default" type="submit" value="Vote" />
 </form>
 
+</div>
+</div>
 
-
-
-<pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</pre>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 {% endblock %}

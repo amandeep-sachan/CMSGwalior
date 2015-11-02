@@ -18,7 +18,7 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="{% static "images/ico/favicon.ico" %}">
+    <link rel="shortcut icon" href="{% static "images/ico/logo.jpg" %}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "images/ico/apple-touch-icon-144-precomposed.png" %}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "images/ico/apple-touch-icon-114-precomposed.png" %}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "images/ico/apple-touch-icon-72-precomposed.png" %}">
@@ -41,11 +41,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="{{ ho }}"><a href="{% url 'index' %}">Home</a></li>
                     <li class="{{ au }}"><a href="{% url 'about' %}">About Us</a></li>
-                    <li class="{{ ac }}"><a href="{% url 'add_complaint' %}">Add Complaint</a></li>
-                    <li class="{{ cs }}"><a href="{% url 'status' %}">Complaint Status</a></li>
                     {% if user.is_authenticated %}
                     <li class="{{ pr }}"><a href="{% url 'profile' %}">Profile</a></li>
-                    <li><a href="{% url 'password_change' %}">Change Password</a></li>
                     <li><a href="{% url 'polls:polls' %}">Polls</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     <!-- <li class="dropdown">
@@ -62,11 +59,13 @@
                         </ul>
                     </li> -->
                     {% else %}
-                    <li class="{{ re }}"><a href="{% url 'register' %}">Register</a></li>
-					<li class="{{ ln }}"><a href="{% url 'login' %}">Login</a></li>
+					<li class="{{ ln }}"><a href="{% url 'login' %}">Register/Login</a></li>
 					{% endif %}
+                    <li class="{{ ac }}"><a href="{% url 'add_complaint' %}">Add Complaint</a></li>
+                    <li class="{{ cs }}"><a href="{% url 'status' %}">Complaint Status</a></li>
+
                      
-                    <li  class="{{ co }}"><a href="{% url 'contact' %}">Contact</a></li>
+                    
                 </ul>
             </div>
         </div>
@@ -84,14 +83,17 @@
     <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     &copy; 2015 <a target="_blank" href="{% url 'index' %}" title="Complaint Management System">CMS | Gwalior</a>. All Rights Reserved.
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
+                    Developed By: <a target="_blank" href="https://in.linkedin.com/pub/amandeep-sachan/99/3aa/b36">Amandeep Sachan
+                </div>
+                <div class="col-sm-4">
                     <ul class="pull-right">
                         <li><a href="{% url 'index' %}">Home</a></li>
                         <li><a href="{% url 'about' %}">About Us</a></li>
-                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
                         <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
                     </ul>
                 </div>

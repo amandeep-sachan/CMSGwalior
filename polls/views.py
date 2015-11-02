@@ -19,8 +19,12 @@ def detail(request, question_id):
 
 @login_required
 def results(request, question_id):
+    total = 0
     question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/results.html', {'question': question})
+    for choice in question.choice_set.all():
+        total = total + choice.votes
+        
+    return render(request, 'polls/results.html', {'question': question, 'total':total})
 
 @login_required
 def vote(request, question_id):

@@ -37,7 +37,7 @@ class RegistrationForm(ModelForm):
 			return email
 		raise forms.ValidationError("This Email-id is already registered.")
 
-	def clean(self):
+	def clean_password1(self):
 		password = self.cleaned_data['password']
 		password1 = self.cleaned_data['password1']
 		if password != password1:

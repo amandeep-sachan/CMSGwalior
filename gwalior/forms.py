@@ -6,7 +6,7 @@ class ComplaintsForm(forms.ModelForm):
 
 	class Meta:
 		model = Complaints
-		exclude = ('solved', 'preference')
+		exclude = ('solved', 'comment', 'preference')
 
 
 class StatusForm(forms.Form):

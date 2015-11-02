@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'mybase.html' %}
 {% load staticfiles %}
 {% block body_block %}
+{% load crispy_forms_tags %}
 
 
 
@@ -8,26 +9,45 @@
 
 <form action="" method="POST">
 {% csrf_token %}
-COMPLAINT ID:
-    {{form.idnumber}}
-    <button type="submit">Submit</button>
+
+
+<center><h2>Check Your Complaint Status Here:</h2></center>
+<br/>
+<br/>
+
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-4">
+
+
+<div class="form-group">
+    <label for="idnumber">COMPLAINT ID</label>
+    <br/>
+    <input type="text" class="form-control" id="idnumber" name="idnumber" placeholder="Complaint ID">
+    {{ form.idnumber.errors }}
+</div>
+
+
+<div class="form-group">
+    <button class="btn btn-success" type="submit">Submit</button>
+ </div>
+
+
 
 </form>
+<br/><br/><br/>
 
-{{ form.idnumber.errors }}
-</form>
+{% if status.solved %}
+<div class="alert alert-info" role="alert">Your Complaint Status: <b>{{ status.solved }}</b></div>
+{% endif %}
+<br/>
+{% if status.comment %}
+<div class="alert alert-success" role="alert"><b>Reply:</b><pre> {{ status.comment }}</pre></div>
+{% endif %}
+<br/>
 
-
-
-{{ status.solved }}
-
-<pre>
-
-
-
-
-
-
+</div>
+</div>
 
 
 
@@ -36,16 +56,8 @@ COMPLAINT ID:
 
 
 
+<br/><br/><br/><br/><br/><br/>
 
-
-
-
-
-
-
-
-
-</pre>
 
 {% endblock %}
 

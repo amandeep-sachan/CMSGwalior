@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'gwalior',
     'registrations',
-    'polls'
+    'polls',
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (

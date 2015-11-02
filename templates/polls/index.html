@@ -1,49 +1,33 @@
-{% extends 'base.html' %}
+{% extends 'mybase.html' %}
 
 {% load staticfiles %}
 {% block body_block %}
 
 
 {% if latest_question_list %}
+	<center><h3>Latest Polls</h3></center><br/>
+	<div class="row">
+	<div class="col-md-1"></div>
+<div class="col-md-10">
+
     <ul>
     {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        <li><h4>{{ question.question_text }}</h4></li>
+        <a href="{% url 'polls:detail' question.id %}"><button type="button" class="btn btn-warning">Participate</button></a>
+        <a href="{% url 'polls:results' question.id %}"><button type="button" class="btn btn-warning">Result</button></a>
+        <br/>
+        <br/>
     {% endfor %}
     </ul>
+ </div>
+ </div>
+
 {% else %}
-    <p>No polls are available.</p>
+    <center><p>No polls are available.</p></center>
 {% endif %}
 
 
-<pre>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</pre>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 {% endblock %}

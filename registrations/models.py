@@ -20,7 +20,7 @@ class UserProfiles(models.Model):
 	address = models.CharField(max_length=1024)
 	area = models.CharField(max_length=512)
 	pin = models.IntegerField(default=0)
-	telephone = models.BigIntegerField(blank=True, null=True)
+	telephone = models.BigIntegerField(blank=True, null=True, default=0)
 	mobile = models.BigIntegerField(unique=True, null=True)
 
 	GRA = 'GR'

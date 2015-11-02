@@ -4,7 +4,6 @@ from gwalior import views
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
         url(r'^about/', views.about, name='about'),
-        url(r'^contact/', views.contact, name='contact'),
         url(r'^add_complaint/', views.add_complaint, name='add_complaint'),
         url(r'^status/', views.complaint_status, name='status'),
         # url(r'^register/$', views.register, name='register'),

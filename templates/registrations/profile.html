@@ -1,40 +1,78 @@
-{% extends 'base.html' %}
+{% extends 'mybase.html' %}
 {% load staticfiles %}
 {% block body_block %}
-	<p>First Name: {{ info.first_name }}</p>
-	<p>Last Name: {{ info.last_name }}</p>
-	<img src="/media/{{ info.picture }}" alt="Profile Pic" style="width:200px;height:160px;">
-	<br/>
-	<br/>
-
-	Problem title   -    Status <br/>
-
-	{% for x in comp %}
-	{{x.complaint_title}}   -   {{ x.solved }}
-	<br/>
-	{% endfor %}
 
 
-<pre>
+		<div class="row">
+	<center><h2>Your Profile</h2></center>
+	<center><h3>Wecome <strong>{{ info.first_name }} {{ info.last_name }}</strong> to the Complaint Management System - Gwalior</h3></center><br/><br/>
+	<div class="col-sm-1 col-lg-1"></div>
+	<div class="col-sm-3 col-lg-3">
+		<img src="/media/{{ info.picture }}" alt="Profile Pic" style="width:175px;height:160px;"/>
+		<br/>
+		<br/>
+		<a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a> &nbsp;
+		
+		<a href="/registration/logout"><button type="button" class="btn btn-success">Edit Profile</button></a>
+
+		
+
+	</div>
+	<div class="col-sm-4 col-lg-4">
+	<p><b>Name:</b>  {{ info.first_name }} {{ info.last_name }}</p><br/>
+	<p><b>Username.:</b>  {{ user.username }}</p><br/>
+	<p><b>Gender:</b>  {{ info.gender }}</p><br/>
+	<p><b>Age:</b>  {{ info.age }}</p><br/>
+	<p><b>Education:</b>  {{ info.education }}</p><br/>
+
+	</div>
+	<div class="col-sm-4 col-lg-4">
+		<p><b>Contact:</b>  {{ info.mobile }}</p><br/>
+		<p><b>Address:</b>  {{ info.address }}</p><br/>
+		<p><b>Area:</b>  {{ info.area }}</p><br/>
+		<p><b>Pin:</b>  {{ info.pin }}</p><br/>
+		<a href="{% url 'password_change' %}"><button type="button" class="btn btn-info">Change Password</button></a>
+	</div>
+</div>
+
+<br/><br/>
+<div class="row">
+	<center><h2>Your Complaints</h2></center><br/>
+<div class="col-sm-2 col-lg-2"></div>
+	<div class="col-sm-2 col-lg-2">
+	<h4>Complaint ID</h4><br/>
+		{% for c in comp %}
+		<b>{{ c.id }}</b><br/><br/>
+		{% endfor %}
+		
+	</div>
+	<div class="col-sm-2 col-lg-2">
+	<h4>Type of Complaint</h4><br/>
+		{% for c in comp %}
+		<b>{{ c.type_of_complaint }}</b><br/><br/>
+		{% endfor %}
+		
+	</div>
+	<div class="col-sm-2 col-lg-2">
+	<h4>Complaint Subject</h4><br/>
+		{% for c in comp %}
+		<b>{{ c.complaint_title }}</b><br/><br/>
+		{% endfor %}
+		
+	</div>
+	<div class="col-sm-2 col-lg-2">
+	<h4>Complaint Status</h4><br/>
+		{% for c in comp %}
+		<b>{{ c.solved }}</b><br/><br/>
+		{% endfor %}
+		
+	</div>
+	
 
 
+</div>
 
+<br/><br/><br/><br/><br/><br/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</pre>
 
 {% endblock %}

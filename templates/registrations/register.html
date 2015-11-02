@@ -1,57 +1,134 @@
-{% extends "base.html" %}
+{% extends "mybase.html" %}
 {% block body_block %}
 
+
+<div class="row">
+<center><h2>Register Here</h2></center>
+<br/>
+<br/>
+<div class="col-md-2"></div>
 <form id="user_form" method="post" action=""
                 enctype="multipart/form-data">
-{% csrf_token %}
-{% if form.errors %}<p>Please correct the following fields:</p>{% endif %}
-<!-- <div class="register_div">
-	{% if form.username.errors %}<p class="errors">{{form.username.errors}}</p>{% endif %}
-	<p><label for="username"{% if form.username.errors %} class="error"{% endif %}>Username:</label></p>
-	<p>{{form.username}}</p>
+                {% csrf_token %}
+
+<div class="col-md-4">
+<center><h3>Personal Details:</h3></center>
+<br/>
+    <div class="form-group">
+        <input type="text" id="first_name" name="first_name" placeholder="First Name" class="form-control">
+        {{ form.first_name.errors }}
+
+    </div>
+ 
+    <div class="form-group">
+        <input type="text" id="last_name" name="last_name" placeholder="Last Name" class="form-control">
+        {{ form.last_name.errors }}
+      </div>
+
+     <div class="form-group">
+        <select id="gender" name="gender" class="form-control">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+        {{ form.gender.errors }}
+    </div>
+
+   <div class="form-group">
+        <input type="text" id="age" name="age" placeholder="Age" class="form-control">
+        {{ form.age.errors }}
+      </div>
+
+    
+    <div class="form-group">
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control">
+        {{ form.address.errors }}
+      </div>
+ 
+
+    <div class="form-group">
+        <input type="text" id="area" name="area" placeholder="Area" class="form-control">
+        {{ form.area.errors }}
+      </div>
+
+
+    <div class="form-group">
+        <input type="text" id="pin" name="pin" placeholder="Pin" class="form-control">
+        {{ form.pin.errors }}
+      </div>
+
+
+    <div class="form-group">
+        <input type="text" id="telephone" name="telephone" placeholder="Telephone" class="form-control">
+        {{ form.telephone.errors }}
+      </div>
+ 
+
+    <div class="form-group">
+        <input type="text" id="mobile" name="mobile" placeholder="Mobile" class="form-control">
+        {{ form.mobile.errors }}
+      </div>
+
+
+     <div class="form-group">
+        <select id="education" name="education" class="form-control">
+            <option value="GR">Graduation</option>
+            <option value="PG">Post Graduation</option>
+            <option value="VO">Vocational</option>
+            <option value="HS">Higher Secondary</option>
+            <option value="SE">Secondary</option>
+            <option value="EL">Elementary</option>
+            <option value="NO">None</option>
+        </select>
+        {{ form.education.errors }}
+    </div>
+
+    <div class="form-group">
+    <input type="file" id="picture" name="picture">
+    <p class="help-block">Upload Your Profile Picture Here</p>
+  </div>
+
+ 
+    
+
+</div>
+
+
+<div class="col-md-4">
+<center><h3>Login Details:</h3></center>
+<br/>
+<div class="form-group">
+        <input type="text" id="username" name="username" placeholder="username" class="form-control">
+        {{ form.username.errors }}
+    </div>
+
+    <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Email" class="form-control">
+        {{ form.email.errors }}
+     </div>
+
+    <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <input type="password" id="username" name="password1" placeholder="Verify Password" class="form-control">
+        {{ form.password1.errors }}
+    </div>
+
+
+    <div class="form-group">
+      <!-- Button -->
+      <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="Register" />
+    </div>
 
 
 </div>
-<div class="register_div">
-	{% if forms.email.errors %}<p class="errors">{{ form.email.errors }}</p>{% endif %}
-	<p><label for="email"{% if form.email.errors %} class="error"{% endif %}>Email:</label></p>
-	<p>{{form.email}}</p>
 
 
-</div>
-<div class="register_div">
-	{% if forms.password.errors %}<p class="errors">{{ form.password.errors }}</p>{% endif %}
-	<p><label for="password"{% if form.password.errors %} class="error"{% endif %}Password:</label></p>
-	<p>{{form.password}}</p>
-
-
-</div>
-<div class="register_div">
-	{% if forms.password1.errors %}<p class="errors">{{ form.password1.errors }}</p>{% endif %}
-	<p><label for="password1"{% if form.password1.errors %} class="error"{% endif %}Verify Password:</label></p>
-	<p>{{form.password1}}</p>
-
-
-</div>
-<div class="register_div">
-	{% if forms.first_name.errors %}<p class="errors">{{ form.first_name.errors }}</p>{% endif %}
-	<p><label for="first_name"{% if form.first_name.errors %} class="error"{% endif %}>First Name:</label></p>
-	<p>{{form.first_name}}</p>
-
-
-</div>
-<div class="register_div">
-	{% if forms.last_name.errors %}<p class="errors">{{ form.last_name.errors }}</p>{% endif %}
-	<p><label for="last_name"{% if form.last_name.errors %} class="error"{% endif %}>Last name:</label></p>
-	<p>{{form.last_name}}</p>
-
-
-</div> -->
-
-{{form.as_p}}
-
-<input type="submit" name="submit" value="Register" />
 
 </form>
+</div>
+
+
 {% endblock %}
 
